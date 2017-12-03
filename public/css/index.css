@@ -2,3 +2,18 @@
     height: 500px;
     width: 500px;
 }
+
+.controls-progressbar-container {
+    padding: 100px 50px;
+    background-color: blue;
+}
+
+.controls-progressbar-progressbar {
+    height: 5px;
+    background-color: yellow;
+}
+
+.controls-progressbar-progressbar-timebar {
+    height: 100%;
+    background-color: red;
+}

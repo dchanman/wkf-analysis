@@ -9,17 +9,24 @@
 
     $("#input").on("change", playFile);
 
-    // Controls
-    var videoplayerdom = $("#videoplayer")[0];
-    $("#controls-play").on("click", function () {
-        if (videoplayerdom.paused) {
-            videoplayerdom.play();
-        } else {
-            videoplayerdom.pause();
-        }
-    });
-
     $(document).ready(function () {
-        console.log("Loaded");
+        console.log("Ready");
+        // Controls
+        var videoplayer = $("#videoplayer"),
+            videoplayerdom = videoplayer[0];
+        $("#controls-play").on("click", function () {
+            if (videoplayerdom.paused) {
+                videoplayerdom.play();
+            } else {
+                videoplayerdom.pause();
+            }
+        });
+        videoplayer.on("timeupdate", function () {
+            var currentPosition = videoplayerdom.currentTime,
+                maxTime = videoplayerdom.duration,
+                percentage = currentPosition / maxTime * 100;
+            console.log(percentage + "%");
+            $(".controls-progressbar-progressbar-timebar").css("width", percentage + "%");
+        });
     });
 }());
