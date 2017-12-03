@@ -1,6 +1,6 @@
 {
     "predef": [
-        "module", "console", "document", "window", "XMLHttpRequest", "$", "Promise",
+        "module", "console", "document", "window", "XMLHttpRequest", "$", "Promise", "URL",
         "playerjs",
         "Main"
     ],
