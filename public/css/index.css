@@ -7,13 +7,21 @@
     padding: 100px 50px;
     background-color: blue;
 }
-
 .controls-progressbar-progressbar {
     height: 5px;
     background-color: yellow;
 }
-
 .controls-progressbar-progressbar-timebar {
     height: 100%;
     background-color: red;
+}
+.controls-progressbar-progressbar-timebar-button {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    top: -8.5px; /* this buttons -height/2 + its container's height/2 */
+    background-color: white;
+    float: right;
 }
