@@ -3,6 +3,10 @@
     width: 500px;
 }
 
+.workspace {
+    display: none;
+}
+
 .fileselect input[type=file] {
     position: absolute;
     z-index: -1;

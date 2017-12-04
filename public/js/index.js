@@ -57,6 +57,7 @@
                 fileURL = URL.createObjectURL(file);
             $("#videoplayer")[0].src = fileURL;
             $("#fileselect-input-label").html(this.files[0].name);
+            $(".workspace").show();
         }
         // Redirect the button's click to the input
         $("#fileselect-input-button").on("click", function () {  $("#fileselect-input").click(); });

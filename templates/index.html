@@ -15,18 +15,20 @@
 		<label id="fileselect-input-label" for="fileselect-input">Select a file</label>
 		<input id="fileselect-input" class="mdc-form-field" type="file" accept="video/*"/>
 	</div>
-	<div>
-		<video id="videoplayer" controls autoplay poster></video>
-	</div>
-	<div id="controls">
-		<div class="controls-buttons">
-			<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play"><i id="controls-play-icon" class="material-icons mdc-button__icon">play_arrow</i></button>
-			<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play">Add Event</button>
+	<div class="workspace">
+		<div>
+			<video id="videoplayer" controls autoplay poster></video>
 		</div>
-		<div class="controls-progressbar-container">
-			<div class="controls-progressbar-progressbar">
-				<div class="controls-progressbar-progressbar-timebar">
-					<div class="controls-progressbar-progressbar-timebar-button"></div>
+		<div id="controls">
+			<div class="controls-buttons">
+				<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play"><i id="controls-play-icon" class="material-icons mdc-button__icon">play_arrow</i></button>
+				<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play">Add Event</button>
+			</div>
+			<div class="controls-progressbar-container">
+				<div class="controls-progressbar-progressbar">
+					<div class="controls-progressbar-progressbar-timebar">
+						<div class="controls-progressbar-progressbar-timebar-button"></div>
+					</div>
 				</div>
 			</div>
 		</div>
