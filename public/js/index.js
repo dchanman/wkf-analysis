@@ -56,10 +56,10 @@
             var file = this.files[0],
                 fileURL = URL.createObjectURL(file);
             $("#videoplayer")[0].src = fileURL;
-            console.log("Should be playing " + fileURL);
             $("#fileselect-input-label").html(this.files[0].name);
-            console.log("filename: " + this.files[0].name);
         }
+        // Redirect the button's click to the input
+        $("#fileselect-input-button").on("click", function () {  $("#fileselect-input").click(); });
         $("#fileselect-input").on("change", playFile);
     }
     $(document).ready(function () {
