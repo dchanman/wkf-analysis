@@ -1,27 +1,20 @@
 (function () {
     "use strict";
-    var playFile = function () {
-        var file = this.files[0],
-            fileURL = URL.createObjectURL(file);
-        $("#videoplayer")[0].src = fileURL;
-        console.log("Should be playing " + fileURL);
-    };
-
-    $("#input").on("change", playFile);
-
-    $(document).ready(function () {
-        console.log("Ready");
-        // Controls
+    function initControls() {
         var videoplayer = $("#videoplayer"),
             videoplayerdom = videoplayer[0],
             progressbarDrag = false;
-        $("#controls-play").on("click", function () {
+        function togglePlay() {
             if (videoplayerdom.paused) {
                 videoplayerdom.play();
             } else {
                 videoplayerdom.pause();
             }
-        });
+        }
+        $("#controls-play").on("click", togglePlay);
+        videoplayer.on("click", togglePlay);
+        videoplayer.on("pause", function () { $("#controls-play-icon").html("play_arrow"); });
+        videoplayer.on("play", function () { $("#controls-play-icon").html("pause"); });
         function updateTimebarPosition(percentage) {
             $(".controls-progressbar-progressbar-timebar").css("width", percentage + "%");
         }
@@ -57,5 +50,21 @@
             console.log(percentage + "%");
             updateTimebarPosition(percentage);
         });
+    }
+    function initFileselect() {
+        function playFile() {
+            var file = this.files[0],
+                fileURL = URL.createObjectURL(file);
+            $("#videoplayer")[0].src = fileURL;
+            console.log("Should be playing " + fileURL);
+            $("#fileselect-input-label").html(this.files[0].name);
+            console.log("filename: " + this.files[0].name);
+        }
+        $("#fileselect-input").on("change", playFile);
+    }
+    $(document).ready(function () {
+        console.log("Ready");
+        initControls();
+        initFileselect();
     });
 }());

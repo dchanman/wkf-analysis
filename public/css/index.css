@@ -3,7 +3,17 @@
     width: 500px;
 }
 
+.fileselect input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.controls-buttons {
+    margin: 5px;
+}
 .controls-progressbar-container {
+    margin: 5px;
     padding: 100px 50px;
     background-color: blue;
 }

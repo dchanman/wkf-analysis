@@ -1,16 +1,28 @@
 <head>
+	<link
+      rel="stylesheet"
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <html>
 <body>
-	<h1>Video Analysis Tool</h1>
-	<div>
-		<input id="input" type="file" accept="video/*"/>
+	<h1 class="mdc-typography--display1">Video Analysis Tool v0.1</h1>
+	<div class="fileselect mdc-form-field">
+		<button class="mdc-button mdc-button--raised mdc-ripple-surface"><i class="material-icons mdc-button__icon">file_upload</i></button>
+		<label id="fileselect-input-label" for="fileselect-input">Select a file</label>
+		<input id="fileselect-input" class="mdc-form-field" type="file" accept="video/*"/>
 	</div>
-	<video id="videoplayer" controls autoplay poster></video>
+	<div>
+		<video id="videoplayer" controls autoplay poster></video>
+	</div>
 	<div id="controls">
-		<button id="controls-play">Play/Pause</button>
+		<div class="controls-buttons">
+			<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play"><i id="controls-play-icon" class="material-icons mdc-button__icon">play_arrow</i></button>
+			<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play">Add Event</button>
+		</div>
 		<div class="controls-progressbar-container">
 			<div class="controls-progressbar-progressbar">
 				<div class="controls-progressbar-progressbar-timebar">
