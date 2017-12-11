@@ -66,13 +66,13 @@
 		$('#fileselect-input-button').on('click', () => {
 			$('#fileselect-input').click();
 		});
-		$('#fileselect-input').on('change', () => {
-			const file = this.files[0];
+		$('#fileselect-input').on('change', (e) => {
+			const file = e.currentTarget.files[0];
 			const fileURL = URL.createObjectURL(file);
 			$('#videoplayer')[0].src = fileURL;
-			$('#fileselect-input-label').html(this.files[0].name);
+			$('#fileselect-input-label').html(file.name);
 			$('.workspace').show();
-			match = new Karate.Match(this.files[0].name);
+			match = new Karate.Match(file.name);
 		});
 	}
 	$(document).ready(() => {
