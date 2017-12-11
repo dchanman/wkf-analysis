@@ -1,6 +1,8 @@
 /* eslint-env browser, jquery */
+/* global Karate:true */
 (function () {
 	'use strict';
+	let match = null;
 	function initControls() {
 		const videoplayer = $('#videoplayer');
 		const videoplayerdom = videoplayer[0];
@@ -19,6 +21,9 @@
 		});
 		videoplayer.on('play', () => {
 			$('#controls-play-icon').html('pause');
+		});
+		$('#controls-add-event').on('click', () => {
+			match.addEvent(videoplayerdom.currentTime, Karate.SIDE.AKA);
 		});
 		function updateTimebarPosition(percentage) {
 			$('.controls-progressbar-progressbar-timebar').css('width', percentage + '%');
@@ -57,18 +62,18 @@
 		});
 	}
 	function initFileselect() {
-		function playFile() {
+		// Redirect the button's click to the input
+		$('#fileselect-input-button').on('click', () => {
+			$('#fileselect-input').click();
+		});
+		$('#fileselect-input').on('change', () => {
 			const file = this.files[0];
 			const fileURL = URL.createObjectURL(file);
 			$('#videoplayer')[0].src = fileURL;
 			$('#fileselect-input-label').html(this.files[0].name);
 			$('.workspace').show();
-		}
-		// Redirect the button's click to the input
-		$('#fileselect-input-button').on('click', () => {
-			$('#fileselect-input').click();
+			match = new Karate.Match(this.files[0].name);
 		});
-		$('#fileselect-input').on('change', playFile);
 	}
 	$(document).ready(() => {
 		console.log('Ready');

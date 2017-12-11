@@ -1,8 +1,0 @@
-{
-    "predef": [
-        "module", "console", "document", "window", "XMLHttpRequest", "$", "Promise", "URL",
-        "playerjs",
-        "Main"
-    ],
-    "es5": true
-}
