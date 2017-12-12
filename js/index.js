@@ -3,9 +3,9 @@
 (function () {
 	'use strict';
 	let match = null;
+	const videoplayer = $('#videoplayer');
+	const videoplayerdom = videoplayer[0];
 	function initControls() {
-		const videoplayer = $('#videoplayer');
-		const videoplayerdom = videoplayer[0];
 		let progressbarDrag = false;
 		function togglePlay() {
 			if (videoplayerdom.paused) {
@@ -61,6 +61,20 @@
 			updateTimebarPosition(percentage);
 		});
 	}
+	function matchEventListUpdate(newEvent) {
+		let eventListItem = $(
+			'<li class="mdc-list-item">' +
+					'<i class="material-icons">error</i>' +
+					'<span>' + 'Event' + '</span>' +
+					'<span>' + newEvent.videoTimestamp + '</span>' +
+				'</span>' +
+			'</li>'
+		);
+		eventListItem.on('click', () => {
+			videoplayerdom.currentTime = newEvent.videoTimestamp;
+		});
+		$('#controls-events-list').append(eventListItem);
+	}
 	function initFileselect() {
 		// Redirect the button's click to the input
 		$('#fileselect-input-button').on('click', () => {
@@ -73,6 +87,7 @@
 			$('#fileselect-input-label').html(file.name);
 			$('.workspace').show();
 			match = new Karate.Match(file.name);
+			match.addMatchEventCallback(matchEventListUpdate);
 		});
 	}
 	$(document).ready(() => {
