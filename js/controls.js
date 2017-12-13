@@ -14,11 +14,11 @@ window.Controls = (function () {
 		let percentage = position / progressbar.width() * 100;
 		percentage = percentage > 100 ? 100 : percentage;
 		percentage = percentage < 0 ? 0 : percentage;
-		Publish['controls.seekpercent'](percentage);
+		Videoplayer.SeekPercent(percentage);
 	}
 
 	// Internal events
-	$('#controls-play').on('click', Publish['controls.toggle']);
+	$('#controls-play').on('click', Videoplayer.Toggle);
 	$('#controls-add-event').on('click', addEvent);
 	$('.controls-progressbar-progressbar').on('mousedown', (evt) => {
 		console.log('mousedown');
@@ -44,14 +44,6 @@ window.Controls = (function () {
 				timestamp: timestamp
 			});
 		},
-		'controls.seekpercent': (percentage) => {
-			PubSub.Publish('controls.seekpercent', {
-				percentage: percentage
-			});
-		},
-		'controls.toggle': () => {
-			PubSub.Publish('controls.toggle');
-		}
 	};
 
 	// Incoming events

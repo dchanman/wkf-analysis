@@ -37,7 +37,7 @@ window.Data = (function () {
 
 	// Incoming events
 	PubSub.Subscribe('fileselect.input', (evt) => {
-		gMatch = new Match(evt.fileurl);
+		gMatch = new Match(evt.file.name);
 	});
 	PubSub.Subscribe('controls.addevent', (evt) => {
 		const timestamp = evt.timestamp;

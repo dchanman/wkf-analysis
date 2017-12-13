@@ -8,13 +8,13 @@ window.Fileselect = (function() {
 	});
 
 	$('#fileselect-input').on('change', (e) => {
-		Publish['fileselect.input'](URL.createObjectURL(e.currentTarget.files[0]));
+		Publish['fileselect.input'](e.currentTarget.files[0]);
 	});
 
 	Publish = {
-		'fileselect.input': (fileurl) => {
+		'fileselect.input': (file) => {
 			PubSub.Publish('fileselect.input', {
-				fileurl: fileurl
+				file: file
 			});
 		}
 	};

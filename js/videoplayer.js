@@ -5,6 +5,7 @@ window.Videoplayer = (function () {
 	const videoplayerdom = videoplayer[0];
 
 	function togglePlay() {
+		console.log('toggl');
 		if (videoplayerdom.paused) {
 			videoplayerdom.play();
 		} else {
@@ -27,7 +28,6 @@ window.Videoplayer = (function () {
 		Publish['videoplayer.statechange']('pause');
 	});
 	videoplayer.on('click', togglePlay);
-	$('#controls-play').on('click', togglePlay);
 
 	// Outgoing events
 	const Publish = {
@@ -47,23 +47,8 @@ window.Videoplayer = (function () {
 
 	// Incoming events
 	PubSub.Subscribe('fileselect.input', (evt) => {
-		videoplayerdom.src = evt.fileurl;
+		videoplayerdom.src = URL.createObjectURL(evt.file);
 		Publish['videoplayer.statechange']('play');
-	});
-	PubSub.Subscribe('controls.play', () => {
-		videoplayer.play();
-	});
-	PubSub.Subscribe('controls.pause', () => {
-		videoplayer.pause();
-	});
-	PubSub.Subscribe('controls.toggle', () => {
-		togglePlay();
-	});
-	PubSub.Subscribe('controls.seekpercent', (evt) => {
-		const maxtime = videoplayerdom.duration;
-		const newtime = evt.percentage / 100 * maxtime;
-		videoplayerdom.currentTime = newtime;
-		timeupdate();
 	});
 
 	return {
@@ -72,6 +57,15 @@ window.Videoplayer = (function () {
 		},
 		Seek: (timestamp) => {
 			videoplayerdom.currentTime = timestamp;
+		},
+		SeekPercent: (percentage) => {
+			const maxtime = videoplayerdom.duration;
+			const newtime = percentage / 100 * maxtime;
+			videoplayerdom.currentTime = newtime;
+			timeupdate();
+		},
+		Toggle: () => {
+			togglePlay();
 		}
 	};
 
