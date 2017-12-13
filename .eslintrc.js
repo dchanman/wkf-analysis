@@ -1,11 +1,16 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jquery": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
         "sourceType": "module"
+    },
+    "globals": {
+      "PubSub": true,
+      "Videoplayer": true
     },
     "rules": {
         "indent": [
