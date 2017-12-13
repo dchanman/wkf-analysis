@@ -35,6 +35,14 @@ window.Data = (function () {
 		$('#controls-events-list').append(eventListItem);
 	}
 
+	const Publish = {
+		'data.event': (match) => {
+			PubSub.Publish('data.event', {
+				match: match
+			});
+		}
+	};
+
 	// Incoming events
 	PubSub.Subscribe('fileselect.input', (evt) => {
 		gMatch = new Match(evt.file.name);
@@ -46,7 +54,7 @@ window.Data = (function () {
 		let e = new Event(timestamp, side, comment);
 		gMatch.events.push(e);
 		matchEventListUpdate(e);
-		console.log(gMatch);
+		Publish['data.event'](gMatch);
 	});
 	return {
 		Match,
