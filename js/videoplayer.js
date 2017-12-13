@@ -4,19 +4,11 @@ window.Videoplayer = (function () {
 	const videoplayer = $('#videoplayer');
 	const videoplayerdom = videoplayer[0];
 
-	function play() {
-		videoplayerdom.play();
-		Publish['videoplayer.statechange']('play');
-	}
-	function pause() {
-		videoplayerdom.pause();
-		Publish['videoplayer.statechange']('pause');
-	}
 	function togglePlay() {
 		if (videoplayerdom.paused) {
-			play();
+			videoplayerdom.play();
 		} else {
-			pause();
+			videoplayerdom.pause();
 		}
 	}
 	function timeupdate() {
@@ -28,6 +20,13 @@ window.Videoplayer = (function () {
 
 	// Internal events
 	videoplayer.on('timeupdate', timeupdate);
+	videoplayer.on('play', () => {
+		Publish['videoplayer.statechange']('play');
+	});
+	videoplayer.on('pause', () => {
+		Publish['videoplayer.statechange']('pause');
+	});
+	videoplayer.on('click', togglePlay);
 	$('#controls-play').on('click', togglePlay);
 
 	// Outgoing events
@@ -52,10 +51,10 @@ window.Videoplayer = (function () {
 		Publish['videoplayer.statechange']('play');
 	});
 	PubSub.Subscribe('controls.play', () => {
-		play();
+		videoplayer.play();
 	});
 	PubSub.Subscribe('controls.pause', () => {
-		pause();
+		videoplayer.pause();
 	});
 	PubSub.Subscribe('controls.toggle', () => {
 		togglePlay();
