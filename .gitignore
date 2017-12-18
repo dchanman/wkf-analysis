@@ -35,3 +35,9 @@ Session.vim
 tags
 
 # End of https://www.gitignore.io/api/go,vim
+
+# Jekyll
+_site
+.sass-cache
+.jekyll-metadata
+*.lock

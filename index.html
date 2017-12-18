@@ -1,3 +1,6 @@
+---
+title: "World Karate Federation (WKF) Karate Video Analysis Tool v0.1"
+---
 <head>
 	<link
       rel="stylesheet"
@@ -13,79 +16,11 @@
 <html>
 <body>
 	<h1 class="mdc-typography--display1">Video Analysis Tool v0.1</h1>
-	<div class="fileselect mdc-form-field">
-		<button id="fileselect-input-button" class="mdc-button mdc-button--raised mdc-ripple-surface"><i class="material-icons mdc-button__icon">file_upload</i></button>
-		<label id="fileselect-input-label" for="fileselect-input">Select a file</label>
-		<input id="fileselect-input" class="mdc-form-field" type="file" accept="video/*"/>
-	</div>
+	{% include fileselect.html %}
 	<div class="workspace">
-		<div>
-			<video id="videoplayer" controls autoplay poster></video>
-		</div>
-		<div id="controls">
-			<div class="controls-buttons">
-				<div>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play"><i id="controls-play-icon" class="material-icons mdc-button__icon">play_arrow</i></button>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-add-event">Add Event</button>
-				</div>
-				<div>
-					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-points="1">AKA+1</button>
-					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-points="2">AKA+2</button>
-					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-points="3">AKA+3</button>
-					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-points="1">AO+1</button>
-					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-points="2">AO+2</button>
-					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-points="3">AO+3</button>
-				</div>
-				<div>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="1">AKA C1 1</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="2">AKA C1 2</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="3">AKA C1 3</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="4">AKA C1 4</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="1">AO C1 1</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="2">AO C1 2</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="3">AO C1 3</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="4">AO C1 4</button>
-				</div>
-				<div>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="1">AKA C2 1</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="2">AKA C2 2</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="3">AKA C2 3</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="4">AKA C2 4</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="1">AO C2 1</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="2">AO C2 2</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="3">AO C2 3</button>
-					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="4">AO C2 4</button>
-				</div>
-			</div>
-			<div id="scoreboard">
-				<div><b>Aka: </b><span id="scoreboard-aka-pt"></span></div>
-				<div><b>Ao:  </b><span id="scoreboard-ao-pt"></span></div>
-				<div><b>Aka C1: </b><span id="scoreboard-aka-c1"></span></div>
-				<div><b>Ao C1:  </b><span id="scoreboard-ao-c1"></span></div>
-				<div><b>Aka C2: </b><span id="scoreboard-aka-c2"></span></div>
-				<div><b>Ao C2:  </b><span id="scoreboard-ao-c2"></span></div>
-			</div>
-			<div class="controls-progressbar-container">
-				<div class="controls-progressbar-progressbar">
-					<div class="controls-progressbar-progressbar-timebar">
-						<div class="controls-progressbar-progressbar-timebar-button"></div>
-					</div>
-				</div>
-			</div>
-			<div class="controls-events">
-				<ul id="controls-events-list" class="mdc-list mdc-list--two-line">
-				</ul>
-			</div>
-		</div>
+		{% include videoplayer.html %}
+		{% include controls.html %}
 	</div>
 </body>
-<script type="text/javascript" src="js/common.js"></script>
-<script type="text/javascript" src="js/pubsub.js"></script>
-<script type="text/javascript" src="js/videoplayer.js"></script>
-<script type="text/javascript" src="js/controls.js"></script>
-<script type="text/javascript" src="js/data.js"></script>
-<script type="text/javascript" src="js/fileselect.js"></script>
-<script type="text/javascript" src="js/view.js"></script>
-<script type="text/javascript" src="js/scoreboard.js"></script>
-<!-- <script type="text/javascript" src="js/storage.js"></script> -->
+{% include js_includes.html %}
 </html>
