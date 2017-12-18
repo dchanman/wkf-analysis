@@ -14,12 +14,10 @@ window.Data = (function () {
 	function matchEventListUpdate(newEvent) {
 		let eventListItem = $(
 			'<li class="mdc-list-item">' +
-					'<i class="material-icons">error</i>' +
-					'<span>' + 'Event' + '</span>' +
-					'<span>' + newEvent.videoTimestamp + '</span>' +
-					'<span>' + newEvent.side + '</span>' +
-					'<span>' + newEvent.points + '</span>' +
-				'</span>' +
+					'<i class="mdc-list-item__start-detail material-icons" aria-hidden="true">error</i>' +
+					'<span class="mdc-list-item__text">' + newEvent.type + ' : ' + newEvent.side +
+						'<span class="mdc-list-item__text__secondary">' + newEvent.videoTimestamp.toMMSSTimestamp() + '</span>' +
+					'</span>' +
 			'</li>'
 		);
 		eventListItem.on('click', () => {

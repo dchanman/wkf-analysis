@@ -9,6 +9,7 @@ window.Event = (function () {
 		POINT: 'point',
 		PENALTY: 'penalty'
 	};
+	let gEventId = 0;
 	function Factory() {
 		this.data = {
 			videoTimestamp: undefined,
@@ -18,6 +19,7 @@ window.Event = (function () {
 		};
 	}
 	Factory.prototype.getEvent = function () {
+		this.data.id = gEventId++;
 		return Object.assign({}, this.data);
 	};
 	Factory.prototype.setVideoTimestamp = function (videoTimestamp) {
@@ -90,3 +92,11 @@ window.Util = (function () {
 		PriorityQueue
 	};
 })();
+
+Number.prototype.toMMSSTimestamp = function () {
+	const sec_num = parseInt(this, 10);
+	const min = Math.floor(sec_num / 60);
+	const sec = sec_num - (min * 60);
+	const sec_str = ('' + sec).padStart(2, '0');
+	return min + ':' + sec_str;
+};
