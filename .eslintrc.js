@@ -10,7 +10,9 @@ module.exports = {
     },
     "globals": {
       "PubSub": true,
-      "Videoplayer": true
+      "Videoplayer": true,
+      "SIDE": true,
+      "Util": true
     },
     "rules": {
         "indent": [

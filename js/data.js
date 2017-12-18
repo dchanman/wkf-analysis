@@ -1,14 +1,5 @@
 window.Data = (function () {
 	'use strict';
-	const SIDE = {
-		AKA: 'aka',
-		AO: 'ao'
-	};
-	function Event(videoTimestamp, side, comment = '') {
-		this.videoTimestamp = videoTimestamp;
-		this.side = side;
-		this.comment = comment;
-	}
 	function Match(videoName) {
 		this.videoName = videoName;
 		this.videoLength = 0;
@@ -26,6 +17,8 @@ window.Data = (function () {
 					'<i class="material-icons">error</i>' +
 					'<span>' + 'Event' + '</span>' +
 					'<span>' + newEvent.videoTimestamp + '</span>' +
+					'<span>' + newEvent.side + '</span>' +
+					'<span>' + newEvent.points + '</span>' +
 				'</span>' +
 			'</li>'
 		);
@@ -36,8 +29,9 @@ window.Data = (function () {
 	}
 
 	const Publish = {
-		'data.event': (match) => {
+		'data.event': (evt, match) => {
 			PubSub.Publish('data.event', {
+				newEvent: evt,
 				match: match
 			});
 		}
@@ -48,13 +42,9 @@ window.Data = (function () {
 		gMatch = new Match(evt.file.name);
 	});
 	PubSub.Subscribe('controls.addevent', (evt) => {
-		const timestamp = evt.timestamp;
-		const side = SIDE.AKA;
-		const comment = 'this is a comment';
-		let e = new Event(timestamp, side, comment);
-		gMatch.events.push(e);
-		matchEventListUpdate(e);
-		Publish['data.event'](gMatch);
+		gMatch.events.push(evt);
+		matchEventListUpdate(evt);
+		Publish['data.event'](evt, gMatch);
 	});
 	return {
 		Match,

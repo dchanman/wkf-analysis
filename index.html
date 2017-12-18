@@ -24,8 +24,23 @@
 		</div>
 		<div id="controls">
 			<div class="controls-buttons">
-				<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play"><i id="controls-play-icon" class="material-icons mdc-button__icon">play_arrow</i></button>
-				<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-add-event">Add Event</button>
+				<div>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-play"><i id="controls-play-icon" class="material-icons mdc-button__icon">play_arrow</i></button>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-add-event">Add Event</button>
+				</div>
+				<div>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-aka-pt1">AKA+1</button>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-aka-pt2">AKA+2</button>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-aka-pt3">AKA+3</button>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-ao-pt1">AO+1</button>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-ao-pt2">AO+2</button>
+					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-ao-pt3">AO+3</button>
+				</div>
+
+			</div>
+			<div id="scoreboard">
+				<div><b>Aka: </b><span id="scoreboard-aka-pt"></span></div>
+				<div><b>Ao:  </b><span id="scoreboard-ao-pt"></span></div>
 			</div>
 			<div class="controls-progressbar-container">
 				<div class="controls-progressbar-progressbar">
@@ -41,11 +56,13 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/pubsub.js"></script>
 <script type="text/javascript" src="js/videoplayer.js"></script>
 <script type="text/javascript" src="js/controls.js"></script>
 <script type="text/javascript" src="js/data.js"></script>
 <script type="text/javascript" src="js/fileselect.js"></script>
 <script type="text/javascript" src="js/view.js"></script>
-<script type="text/javascript" src="js/storage.js"></script>
+<script type="text/javascript" src="js/scoreboard.js"></script>
+<!-- <script type="text/javascript" src="js/storage.js"></script> -->
 </html>
