@@ -15,12 +15,14 @@ title: "World Karate Federation (WKF) Karate Video Analysis Tool v0.1"
 </head>
 <html>
 <body>
-	<h1 class="mdc-typography--display1">Video Analysis Tool v0.1</h1>
-	{% include fileselect.html %}
-	<div class="workspace">
-		{% include videoplayer.html %}
-		{% include controls.html %}
-	</div>
+	{% include header.html %}
+	  <main class="mdc-toolbar-fixed-adjust">
+			{% include fileselect.html %}
+			<div class="workspace">
+				{% include videoplayer.html %}
+				{% include controls.html %}
+			</div>
+	</main>
 </body>
 {% include js_includes.html %}
 </html>

@@ -39,3 +39,12 @@
     background-color: white;
     float: right;
 }
+
+/* Bugfixing the margin bugs in MDC */
+.mdc-toolbar__title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.mdc-toolbar-fixed-adjust {
+  margin-top: 72px;
+}
