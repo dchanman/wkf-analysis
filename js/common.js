@@ -4,15 +4,21 @@ window.SIDE = {
 };
 
 window.Event = (function () {
+	const TYPE = {
+		UNKNOWN: '',
+		POINT: 'point',
+		PENALTY: 'penalty'
+	};
 	function Factory() {
 		this.data = {
 			videoTimestamp: undefined,
+			type: TYPE.UNKNOWN,
 			side: undefined,
 			points: undefined
 		};
 	}
 	Factory.prototype.getEvent = function () {
-		return  Object.assign({}, this.data);
+		return Object.assign({}, this.data);
 	};
 	Factory.prototype.setVideoTimestamp = function (videoTimestamp) {
 		this.data.videoTimestamp = videoTimestamp;
@@ -23,12 +29,26 @@ window.Event = (function () {
 		return this;
 	};
 	Factory.prototype.setPoints = function (points) {
+		if (this.data.type !== TYPE.UNKNOWN) {
+			throw 'data type is already set to ' + this.data.type;
+		}
+		this.data.type = TYPE.POINT;
 		this.data.points = points;
+		return this;
+	};
+	Factory.prototype.setPenalty = function (category, level) {
+		if (this.data.type !== TYPE.UNKNOWN) {
+			throw 'data type is already set to ' + this.data.type;
+		}
+		this.data.type = TYPE.PENALTY;
+		this.data.category = category;
+		this.data.level = level;
 		return this;
 	};
 
 	return {
-		Factory
+		Factory,
+		TYPE
 	};
 })();
 

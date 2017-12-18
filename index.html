@@ -29,18 +29,41 @@
 					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-add-event">Add Event</button>
 				</div>
 				<div>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-aka-pt1">AKA+1</button>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-aka-pt2">AKA+2</button>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-aka-pt3">AKA+3</button>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-ao-pt1">AO+1</button>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-ao-pt2">AO+2</button>
-					<button class="mdc-button mdc-button--raised mdc-ripple-surface" id="controls-ao-pt3">AO+3</button>
+					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-points="1">AKA+1</button>
+					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-points="2">AKA+2</button>
+					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-points="3">AKA+3</button>
+					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-points="1">AO+1</button>
+					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-points="2">AO+2</button>
+					<button class="controls-buttons-point mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-points="3">AO+3</button>
 				</div>
-
+				<div>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="1">AKA C1 1</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="2">AKA C1 2</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="3">AKA C1 3</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="1" data-level="4">AKA C1 4</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="1">AO C1 1</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="2">AO C1 2</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="3">AO C1 3</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="1" data-level="4">AO C1 4</button>
+				</div>
+				<div>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="1">AKA C2 1</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="2">AKA C2 2</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="3">AKA C2 3</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="aka" data-category="2" data-level="4">AKA C2 4</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="1">AO C2 1</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="2">AO C2 2</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="3">AO C2 3</button>
+					<button class="controls-buttons-penalty mdc-button mdc-button--raised mdc-ripple-surface" data-side="ao" data-category="2" data-level="4">AO C2 4</button>
+				</div>
 			</div>
 			<div id="scoreboard">
 				<div><b>Aka: </b><span id="scoreboard-aka-pt"></span></div>
 				<div><b>Ao:  </b><span id="scoreboard-ao-pt"></span></div>
+				<div><b>Aka C1: </b><span id="scoreboard-aka-c1"></span></div>
+				<div><b>Ao C1:  </b><span id="scoreboard-ao-c1"></span></div>
+				<div><b>Aka C2: </b><span id="scoreboard-aka-c2"></span></div>
+				<div><b>Ao C2:  </b><span id="scoreboard-ao-c2"></span></div>
 			</div>
 			<div class="controls-progressbar-container">
 				<div class="controls-progressbar-progressbar">
