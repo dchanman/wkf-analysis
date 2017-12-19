@@ -1,10 +1,23 @@
+---
+---
+// Colors
+$color-aka: #d32f2f;
+$color-ao: #1976D2;
+
+.bg-color-aka {
+  background-color: $color-aka !important;
+}
+.bg-color-ao {
+  background-color: $color-ao !important;
+}
+
 #videoplayer {
     height: 500px;
     width: 500px;
 }
 
 .workspace {
-    display: none;
+    /*display: none;*/
 }
 
 .fileselect input[type=file] {
@@ -13,8 +26,16 @@
     opacity: 0;
 }
 
+.controls-group {
+    margin: 10px;
+    text-align: center;
+}
 .controls-buttons {
-    margin: 5px;
+    display: inline-block;
+}
+.controls-buttons-spacer {
+  display: inline-block;
+  width: 20%;
 }
 .controls-progressbar-container {
     margin: 5px;
