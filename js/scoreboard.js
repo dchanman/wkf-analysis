@@ -16,6 +16,9 @@ window.Scoreboard = (function () {
 	let scoringEvents = new Util.PriorityQueue((evt1, evt2) => {
 		return (evt1.videoTimestamp < evt2.videoTimestamp);
 	});
+	Number.prototype.toDots = function() {
+		return ''.padEnd(this, '⬤').padEnd(4, '⭕');
+	};
 
 	function updateScoreboard(timestamp) {
 		let scores = {
@@ -46,10 +49,10 @@ window.Scoreboard = (function () {
 		}
 		scoreboardPoints[SIDE.AKA].html(scores[SIDE.AKA]);
 		scoreboardPoints[SIDE.AO].html(scores[SIDE.AO]);
-		scoreboardPenalties[SIDE.AKA][1].html(penalties[SIDE.AKA][1]);
-		scoreboardPenalties[SIDE.AKA][2].html(penalties[SIDE.AKA][2]);
-		scoreboardPenalties[SIDE.AO][1].html(penalties[SIDE.AO][1]);
-		scoreboardPenalties[SIDE.AO][2].html(penalties[SIDE.AO][2]);
+		scoreboardPenalties[SIDE.AKA][1].html(penalties[SIDE.AKA][1].toDots());
+		scoreboardPenalties[SIDE.AKA][2].html(penalties[SIDE.AKA][2].toDots());
+		scoreboardPenalties[SIDE.AO][1].html(penalties[SIDE.AO][1].toDots());
+		scoreboardPenalties[SIDE.AO][2].html(penalties[SIDE.AO][2].toDots());
 	}
 
 	// Incoming events

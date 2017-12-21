@@ -61,6 +61,10 @@ $color-ao: #1976D2;
     float: right;
 }
 
+.scoreboard-points {
+  font-size: 4em;
+}
+
 /* Bugfixing the margin bugs in MDC */
 .mdc-toolbar__title {
   margin-top: 0;
