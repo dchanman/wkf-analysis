@@ -1,8 +1,10 @@
 ---
 ---
-// Colors
+// Colors (https://www.materialui.co/colors)
 $color-aka: #d32f2f;
 $color-ao: #1976D2;
+$color-clock-bg: #212121;
+$color-clock-font: #FFEB3B;
 $color-progressbar-bg: #616161;
 $color-progressbar-past: #9E9E9E;
 $color-progressbar-future: #E0E0E0;
@@ -12,6 +14,9 @@ $color-progressbar-future: #E0E0E0;
 }
 .bg-color-ao {
   background-color: $color-ao !important;
+}
+.bg-color-time {
+  background-color: $color-clock-bg !important;
 }
 
 #videoplayer {
@@ -77,6 +82,10 @@ $color-progressbar-future: #E0E0E0;
 }
 .scoreboard-points {
   font-size: 4em;
+}
+.scoreboard-clock {
+  font-size: 4em;
+  color: $color-clock-font !important;
 }
 
 /* Bugfixing the margin bugs in MDC */
