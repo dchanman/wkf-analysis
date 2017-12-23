@@ -2,6 +2,7 @@
 title: "World Karate Federation (WKF) Karate Video Analysis Tool v0.1"
 ---
 <head>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link
       rel="stylesheet"
       href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
@@ -9,7 +10,6 @@ title: "World Karate Federation (WKF) Karate Video Analysis Tool v0.1"
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -19,8 +19,19 @@ title: "World Karate Federation (WKF) Karate Video Analysis Tool v0.1"
 	  <main class="mdc-toolbar-fixed-adjust">
 			{% include fileselect.html %}
 			<div class="workspace">
-				{% include videoplayer.html %}
-				{% include controls.html %}
+				<div class="mdc-layout-grid">
+ 					<div class="mdc-layout-grid__inner">
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+							{% include videoplayer.html %}
+							{% include videocontrols.html %}
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+							{% include scoreboard.html %}
+							{% include controls.html %}
+						</div>
+					</div>
+				</div>
+
 			</div>
 	</main>
 </body>

@@ -3,6 +3,9 @@
 // Colors
 $color-aka: #d32f2f;
 $color-ao: #1976D2;
+$color-progressbar-bg: #616161;
+$color-progressbar-past: #9E9E9E;
+$color-progressbar-future: #E0E0E0;
 
 .bg-color-aka {
   background-color: $color-aka !important;
@@ -12,13 +15,21 @@ $color-ao: #1976D2;
 }
 
 #videoplayer {
-    height: 500px;
-    width: 500px;
+    width: 100%;
+    max-height: 500px;
 }
 
 .workspace {
     /*display: none;*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                          supported by Chrome and Opera */
 }
+
 
 .fileselect input[type=file] {
     position: absolute;
@@ -39,16 +50,16 @@ $color-ao: #1976D2;
 }
 .controls-progressbar-container {
     margin: 5px;
-    padding: 100px 50px;
-    background-color: blue;
+    padding: 80px 30px 30px;
+    background-color: $color-progressbar-bg;
 }
 .controls-progressbar-progressbar {
     height: 5px;
-    background-color: yellow;
+    background-color: $color-progressbar-past;
 }
 .controls-progressbar-progressbar-timebar {
     height: 100%;
-    background-color: red;
+    background-color: $color-progressbar-future;
 }
 .controls-progressbar-progressbar-timebar-button {
     position: relative;
@@ -61,6 +72,9 @@ $color-ao: #1976D2;
     float: right;
 }
 
+.scoreboard {
+  padding: 5px;
+}
 .scoreboard-points {
   font-size: 4em;
 }
