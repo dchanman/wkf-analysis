@@ -76,6 +76,11 @@ $color-progressbar-future: #E0E0E0;
     background-color: white;
     float: right;
 }
+#controls-events-list {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 300px;
+}
 
 .scoreboard {
   padding: 5px;
